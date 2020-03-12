@@ -17,7 +17,10 @@ $(document).ready(function () {
     // window.quill = new Quill('#editor', quill_options);
 
     $("#save_cancel_buttons").css("display", "block");
-    $(".ql-toolbar.ql-snow").css("display", "block");
+    $(".ql-toolbar.ql-snow").css({
+      "display":"block",
+      "background":"white",
+    });
     $(".ql-container.ql-snow").css("border", "1px solid white");
     $(this).css("display","none");
     // var toolbar = quill.getModule('toolbar');

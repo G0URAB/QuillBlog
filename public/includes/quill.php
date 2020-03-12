@@ -154,7 +154,7 @@
       theme: 'snow',
       modules: {
         toolbar: toolbarOptions,
-        imageResize: false,
+        imageResize: true,
       },
     });
 

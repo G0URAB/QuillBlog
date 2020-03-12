@@ -47,4 +47,21 @@ class BlogRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Blog[]
+     */
+    public function findLastRecord(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT blog
+            FROM App\Entity\Blog blog
+            ORDER BY blog.id DESC'
+        );
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

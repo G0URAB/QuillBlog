@@ -47,6 +47,7 @@ class BlogController extends AbstractController
      */
     public function store(Request $request, FileUploader $uploader, SessionInterface $session, BlogRepository $blogRepository)
     {
+        
         if ($request->isXMLHttpRequest()) {
 
             if (isset($_POST['type'])) {
@@ -81,7 +82,7 @@ class BlogController extends AbstractController
                     //Upload blog picture $request->files->get('image');
                     if (($request->files->get("blog_picture")) != null) {
                         try {
-                            $new_blog_id = ($blogRepository->findLastRecord())[0]->getId() + 1;
+                            $new_blog_id = ($blogRepository->findLastRecord())[0]->getId() + 1; 
                             $new_file_name = $uploader->upload_blog_main_pic($request->files->get("blog_picture"), $new_blog_id);
                             $blog->setPicture($new_file_name);
                         } catch (Exception $e) {
@@ -204,8 +205,8 @@ class BlogController extends AbstractController
             //check if new picture
             if ($request->files->get("blog_picture") != null) {
                 //if the new pic not equal to old pic in database then delete 
-                if ($request->files->get("blog_picture")->getClientOriginalName() != $blog->getBigPicture())
-                    unlink($_SERVER['DOCUMENT_ROOT'] . "\\images\\" . $blog->getBigPicture());
+                if ($request->files->get("blog_picture")->getClientOriginalName() != $blog->getPicture())
+                    unlink($_SERVER['DOCUMENT_ROOT'] . "\\images\\" . $blog->getPicture());
                 //upload the new pic with current blog_id
                 $new_file_name = $uploader->upload_blog_main_pic($request->files->get("blog_picture"), $request->request->get("blog_id"));
                 $blog->setPicture($new_file_name);

@@ -67,7 +67,7 @@
 
         <div class="row col-12">
             {% for blog in blogs %}
-            <div class="blog-container bg-secondary col-lg-6 col-md-4">
+            <div class="blog-container bg-secondary col-lg-5 col-md-4 mr-4 ml-4 mt-4">
                 <a href="{{path('blogartikel',{id:blog.getId()})}}"><img src="{{asset('images/')}}{{blog.getPicture()}}"
                         alt=""></a>
 
