@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Artikel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+
+    <div class="container mt-5 h-100">
+
+        <!-- picture -->
+        <div class="col-12 h-50">
+            <img style="height:100%; width: 100%;" src="{{asset('images/')}}{{blog.getPicture}}" alt="">
+        </div>
+
+        <!-- Title -->
+        <div class="container mt-5 text-light col-6 text-center">
+            <h1>{{blog.getTitle()}}</h1>
+        </div>
+
+        <!-- Author and date -->
+        <div class="mt-4 border border-primary col-4 p-4 container text-center rounded-pill">
+            <span class="text-light font-weight-bold">From {{blog.getAuthor()}} </span> <br>
+            <span class="text-light">Published on :{{blog.getDate()}} </span>
+        </div>
+
+        <!-- Quill -->
+        <div  id="delta" data-is-delta="{{ blog.getDelta() }}" class="h-auto mb-4 col-12 container text-white">
+
+            {{ include('@includes/quill.php') }}
+            {% if blog.getDelta() is not empty %}
+            <script>
+                var blog_id = "{{ blog.getId() }}";
+                var artikel = $('#delta').data('isDelta');
+                quill.setContents(artikel);
+            </script>
+            {% else %}
+            <script>var blog_id = "{{ blog.getId() }}";</script>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

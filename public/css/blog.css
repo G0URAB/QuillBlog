@@ -1,0 +1,59 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px
+}
+
+.blog-container{
+    border:1px solid white;
+    z-index: 100;
+    border-radius: 2%;
+    display: block;
+    height: 290px;
+    width:33%
+}
+
+.blog-container img {
+    width: 90%;
+    margin: 5% 5%;
+    height: 50%;
+}
+
+.blog-container .title{
+    color: rgb(26, 25, 24);
+    margin:5% 5%;
+    font-size: larger;
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.blog-container .date {
+    color: rgb(26, 25, 24);
+    margin-top:-3%;
+    margin-left: 5%;
+    float: left;
+    font-size: small;
+}
+
+.blog-container .reading_time{
+    color: rgb(26, 25, 24);
+    margin-top:-3%;
+    margin-left: 5%;
+    float:left;
+    font-size: small;
+}
+
+.blog-create-sidebar{
+    position: absolute;
+    right: 0%;
+    transition: .6s ease-out;
+    background-color: #ffcccc;
+    width: .2vw;
+    height: auto;
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;   
+}
